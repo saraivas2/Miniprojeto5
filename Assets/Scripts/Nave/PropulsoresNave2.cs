@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-public class PropulsoresNave : MonoBehaviour
+public class PropulsoresNave2 : MonoBehaviour
 {
     public float sensibilidade = 3f;
     private float maxAngle = 25f; 
@@ -12,6 +12,7 @@ public class PropulsoresNave : MonoBehaviour
     private float timeCount=0.1f;
     public GameObject propulsor;
 
+
     private void Start()
     {
         
@@ -19,8 +20,8 @@ public class PropulsoresNave : MonoBehaviour
 
     void Update()
     {
-        transfx = GetComponentInParent<Script_nave1>().mouseX * sensibilidade;
-        transfy = GetComponentInParent<Script_nave1>().mouseY * sensibilidade;
+        transfx = nave.transform.rotation.x;
+        transfy = nave.transform.rotation.y;
         
         movimentaPropulsores(transfx, transfy);
     }
@@ -47,14 +48,15 @@ public class PropulsoresNave : MonoBehaviour
             transform.localRotation = rotacao;
         }
 
-        if (Input.GetKey(KeyCode.Q)) 
+        if (Input.GetKey(KeyCode.P)) 
         {
-            propulsor.transform.localScale = new Vector3(0.005f, 0.005f, 0.015f);
+            propulsor.transform.localScale = new Vector3(0.02f, 0.02f, 0.03f);
         }
         else
         {
-            propulsor.transform.localScale = new Vector3(0.0025f, 0.0025f, 0.009f);
+            propulsor.transform.localScale = new Vector3(0.01f, 0.01f, 0.02f);
         }
+
     }
 
 }

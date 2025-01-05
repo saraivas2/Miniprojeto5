@@ -7,28 +7,31 @@ public class Script_nave2 : MonoBehaviour
 {
     // Start is called before the first frame update
     public float sensibilidade = 1.2f;
-    private float velocidade;
-    private float aceleracao = 3.0f;
+    private float aceleracao = 150f;
     private float turbo = 1.0f;
-    private Vector3 direcao;
     [SerializeField] private Camera camera;
     public float field;
     private Rigidbody rb;
+    public Vector3 vectorMov;
+    Quaternion quat;
+    [SerializeField] private GameObject fogueteR;
+    [SerializeField] private GameObject fogueteL;
 
 
     void Start()
     {
-        velocidade = 2;
-        direcao = Vector3.zero;
-        camera = camera.GetComponent<Camera>();
-        rb = camera.GetComponent<Rigidbody>();
+        rb = GetComponentInChildren<Rigidbody>();
+        fogueteR.SetActive(false);
+        fogueteL.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        float angleY = quat.eulerAngles.y;
+        vectorMov = GetDirectionVector(angleY);
+
         InputPersonagem();
-        transform.Translate(direcao * velocidade * Time.deltaTime);
 
         field = camera.fieldOfView;
         if (field > 50f)
@@ -39,18 +42,12 @@ public class Script_nave2 : MonoBehaviour
         {
             camera.fieldOfView = 35f;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        transform.Translate(direcao * velocidade * Time.deltaTime);
-        Quaternion rotacao = Quaternion.identity;
+        
     }
 
     void InputPersonagem()
     {
-
-        direcao = Vector3.zero;
+        
 
         if (Input.GetKey(KeyCode.P))
         {
@@ -60,75 +57,61 @@ public class Script_nave2 : MonoBehaviour
         {
             turbo = 1.0f;
         }
-        
-        
-       
-        if (Input.GetKey(KeyCode.I))
+
+        if (Input.GetKey(KeyCode.UpArrow))
         {
-            direcao += Vector3.forward * aceleracao * turbo;
-            
+            rb.AddForce(vectorMov * turbo * aceleracao, ForceMode.Acceleration);
+
             if (field <= 50f)
             {
+                fogueteL.SetActive(true);
+                fogueteR.SetActive(true);
                 afasta();
-            }
-            
-            if (aceleracao < 50)
-            {
-                aceleracao += 0.5f;
             }
         }
         else
+
         {
-            if (aceleracao > 5)
+            fogueteL.SetActive(false);
+            fogueteR.SetActive(false);
+
+            if (Input.GetKey(KeyCode.DownArrow))
             {
-                aceleracao -= 0.2f;
+                rb.AddForce(-vectorMov * turbo * aceleracao, ForceMode.Acceleration);
+            }
+            else
+            {
+                rb.velocity = Vector3.zero;
             }
         }
-
-        if (Input.GetKey(KeyCode.J))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Rotate(new Vector3(0f,-1f, 0f), (float)(Time.deltaTime * 20));
+            quat = rb.rotation*Quaternion.Euler(0, -1, 0);
+            rb.MoveRotation(quat);
         }
         
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Rotate(new Vector3(0f,1f,0f),(float)(Time.deltaTime * 20));
-            
+            quat = rb.rotation*Quaternion.Euler(0, 1, 0);
+            rb.MoveRotation(quat);
         }
        
-        if (Input.GetKey(KeyCode.L))
+        if (Input.GetKey(KeyCode.RightShift))
         {
-            direcao += Vector3.down*10;
+            rb.AddForce(-transform.up * aceleracao, ForceMode.Acceleration);
         }
 
 
         if (Input.GetKey(KeyCode.Return))
         {
-            direcao+=Vector3.up*10;
+            rb.AddForce(transform.up * aceleracao, ForceMode.Acceleration);
         }
         
-        if (Input.GetKey(KeyCode.K))
-        {
-            direcao += Vector3.back * aceleracao * turbo;
-
-            if (aceleracao < 50)
-            {
-                aceleracao += 0.5f;
-            }
-        }
-        else
-        {
-            if (aceleracao > 5)
-            {
-                aceleracao -= 0.2f;
-            }
-        }
-
         if ((field >= 34 & field < 51) & !Input.GetKey(KeyCode.UpArrow))    
         {
             aproxima();
         }
-
+        
     }
 
     void aproxima()
@@ -148,4 +131,13 @@ public class Script_nave2 : MonoBehaviour
         }
     }
 
+    Vector3 GetDirectionVector(float angleY)
+    {
+        float radianY = angleY * Mathf.Deg2Rad;
+
+        float x = Mathf.Sin(radianY);
+        float z = Mathf.Cos(radianY);
+
+        return new Vector3(x, 0, z);
+    }
 }
