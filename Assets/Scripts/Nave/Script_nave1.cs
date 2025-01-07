@@ -112,6 +112,14 @@
             {
                 fogueteR.SetActive(false);
                 fogueteL.SetActive(false);
+                if (Input.GetKey(KeyCode.S))
+                {
+                    rb.AddForce(turbo * -CamVect * aceleracao, ForceMode.Acceleration);
+                }
+                else
+                {
+                    rb.velocity = Vector3.zero;
+                }
             }
 
             if (Input.GetKey(KeyCode.S))

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class coletaObjetos : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class coletaObjetos : MonoBehaviour
     public int countObj = 0;
     public bool coleta = false;
     private TextMeshProUGUI texto;
+    public pessoal pessoalScritp;
     
     // Start is called before the first frame update
     void Start()
@@ -21,7 +23,36 @@ public class coletaObjetos : MonoBehaviour
         {
             coleta = true;
             Destroy(other.gameObject);
+        }
+
+        if (other.gameObject.CompareTag("pessoal"))
+        {
+            pessoalScritp.acena();
+            if (Input.GetKey(KeyCode.M))
+            {
+                Destroy(other.gameObject);
+            }
             
+        }
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("pessoal"))
+        {
+            pessoalScritp.acena();
+            if (Input.GetKey(KeyCode.M))
+            {
+                Destroy(other.gameObject);
+            }
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("pessoal"))
+        {
+            pessoalScritp.parado();
         }
     }
     // Update is called once per frame

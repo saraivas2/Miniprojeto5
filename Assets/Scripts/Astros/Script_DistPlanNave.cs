@@ -30,8 +30,6 @@ public class Script_text_plutao : MonoBehaviour
     public GameObject PlutaoTex;
     private Vector3 posiNave;
     public TextMesh Text_Nave;
-    static DropDownScript telaInicial;
-    string piloto1,piloto2;
     public bool nave1;
 
 

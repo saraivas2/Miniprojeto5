@@ -18,6 +18,7 @@ TagManager:
   - somFundo
   - somfoguete
   - basePouso
+  - pessoal
   layers:
   - Default
   - TransparentFX
