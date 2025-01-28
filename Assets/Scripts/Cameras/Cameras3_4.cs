@@ -45,34 +45,34 @@ public class Cameras3_4 : MonoBehaviour
         }
     }
 
-    void ligarCamera3()
+    public void ligarCamera3()
     {
         cam3.enabled = true;
         cam4.enabled = false;
     }
 
-    void ligarCamera4()
+    public void ligarCamera4()
     {
         cam3.enabled = false;
         cam4.enabled = true;
     }
 
-    void viewPortCam3()
+    public void viewPortCam3()
     {
         cam3.rect = new Rect(0, 0, 1, 1);
     }
 
-    void DesligarCameras()
+    public void DesligarCameras()
     {
         cam3.enabled = false;
         cam4.enabled = false;
     }
 
-    void viewPortCam4()
+    public void viewPortCam4()
     {
         cam4.rect = new Rect(0, 0, 1, 1);
     }
-    void viewPortCam34()
+    public void viewPortCam34()
     {
         cam3.rect = new Rect(0.5f, 0, 0.5f, 1);
         cam4.rect = new Rect(0.5f, 0, 0.5f, 1);

@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class DropDownScript : MonoBehaviour
 {
     public string piloto1, piloto2;
@@ -88,4 +89,6 @@ public class DropDownScript : MonoBehaviour
         piloto2 = inputFieldPiloto2.text;
         Pilotos.Instance.SetPiloto2(piloto2);
     }
+
+    
 }

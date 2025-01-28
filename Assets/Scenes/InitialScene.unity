@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 16965913}
   - component: {fileID: 16965912}
   - component: {fileID: 16965911}
+  - component: {fileID: 16965914}
   m_Layer: 5
   m_Name: BEnter
   m_TagString: Untagged
@@ -201,7 +202,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 16965912}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 16965914}
+        m_TargetAssemblyTypeName: SceneGame, Assembly-CSharp
+        m_MethodName: SceneGameLoad
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: SampleScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &16965912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,6 +253,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16965909}
   m_CullTransparentMesh: 1
+--- !u!114 &16965914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16965909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ddf76ff9b28ef647a9dfcc564801c68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &32941055
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,10 +454,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 702622927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 217, y: 56}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.61283356, y: 0.61954546}
+  m_AnchorMax: {x: 0.7495006, y: 0.6855455}
+  m_AnchoredPosition: {x: 0, y: -1.5}
+  m_SizeDelta: {x: -4, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &45313473
 MonoBehaviour:
@@ -631,10 +656,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 702622927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 219, y: -2}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchorMin: {x: 0.6186681, y: 0.4683615}
+  m_AnchorMax: {x: 0.7495006, y: 0.5262728}
+  m_AnchoredPosition: {x: -1.5, y: -1}
+  m_SizeDelta: {x: 3, y: 4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &230247930
 MonoBehaviour:
@@ -669,7 +694,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Piloto2
+  m_Text: 'Piloto2
+
+'
 --- !u!222 &230247931
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1234,7 +1261,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.4364778, y: 0.5372534}
   m_AnchorMax: {x: 0.56869626, y: 0.6212771}
-  m_AnchoredPosition: {x: -0.099998474, y: -0.6000004}
+  m_AnchoredPosition: {x: -0.099998474, y: -0.5999985}
   m_SizeDelta: {x: 0, y: -2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &808534761
@@ -1392,8 +1419,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.5, y: -0.5}
-  m_SizeDelta: {x: -35, y: -13}
+  m_AnchoredPosition: {x: 0.012199402, y: -0.1821003}
+  m_SizeDelta: {x: -5.2862, y: -4.3642}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &973437498
 MonoBehaviour:
@@ -1422,7 +1449,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0

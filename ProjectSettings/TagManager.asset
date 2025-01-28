@@ -19,6 +19,7 @@ TagManager:
   - somfoguete
   - basePouso
   - pessoal
+  - asteroide
   layers:
   - Default
   - TransparentFX

@@ -82,9 +82,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3da7c4090c437be42a5fc25365782c42, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1518933834249528521}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3da7c4090c437be42a5fc25365782c42, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 637364266607421959}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 3da7c4090c437be42a5fc25365782c42, type: 3}
       insertIndex: -1
@@ -98,29 +95,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3da7c4090c437be42a5fc25365782c42, type: 3}
   m_PrefabInstance: {fileID: 1885986032864387348}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &1518933834249528521
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1652037781741362245}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3141127
-  m_Height: 2.008191
-  m_Direction: 1
-  m_Center: {x: -0.12060093, y: 0.97103685, z: 0}
 --- !u!65 &637364266607421959
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -184,4 +158,5 @@ MonoBehaviour:
   pessoa: {fileID: 1652037781741362245}
   nave1: {fileID: 0}
   nave2: {fileID: 0}
-  perto: 0
+  dist: 0
+  dist1: 0

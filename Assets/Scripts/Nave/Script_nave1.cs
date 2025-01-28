@@ -129,14 +129,12 @@
 
             if (Input.GetKey(KeyCode.A))
             {
-                //rb.AddForce(-new Vector3(CamVect.z, 0, CamVect.x) * aceleracao,ForceMode.Acceleration);
                 quat = rb.rotation * Quaternion.Euler(0, -1, 0);
                 mouseY = quat.eulerAngles.y;
             }
 
             if (Input.GetKey(KeyCode.D))
             {
-                //rb.AddForce(new Vector3(CamVect.z,0, CamVect.x) * aceleracao, ForceMode.Acceleration);
                 quat = rb.rotation * Quaternion.Euler(0, 1, 0);
                 mouseY = quat.eulerAngles.y;
             }

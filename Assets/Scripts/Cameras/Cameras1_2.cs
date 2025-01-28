@@ -44,35 +44,35 @@ public class Cameras1_2 : MonoBehaviour
         }
     }
 
-    void ligarCamera1()
+    public void ligarCamera1()
     {
         cam1.enabled = true;
         cam2.enabled = false;   
     }
 
-    void ligarCamera2()
+    public void ligarCamera2()
     {
         cam1.enabled = false;
         cam2.enabled = true;
     }
 
-    void DesligarCameras()
+    public void DesligarCameras()
     {
         cam1.enabled = false;
         cam2.enabled = false;
     }
 
-    void viewPortCam1()
+    public void viewPortCam1()
     {
         cam1.rect = new Rect(0, 0, 1, 1);
     }
 
-    void viewPortCam2()
+    public void viewPortCam2()
     {
         cam2.rect = new Rect(0, 0, 1, 1);
     }
 
-    void viewPortCam12()
+    public void viewPortCam12()
     {
         cam1.rect = new Rect(0, 0, 0.5f, 1);
         cam2.rect = new Rect(0, 0, 0.5f, 1);
